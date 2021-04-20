@@ -1,2 +1,2 @@
 # javascript-study
-JavaScript系列文章学习记录
+JavaScript系列深入学习记录，为日后通读框架源码做准备
