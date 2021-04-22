@@ -23,31 +23,33 @@ function curry(fn, length) {
     }
 }
 
-/** 
- * 使用场景
- * */ 
-const arr = [
-    {
-        name: 1
-    },
-    {
-        name: 2
-    }
-];
+// /** 
+//  * 使用场景
+//  * */ 
+// const arr = [
+//     {
+//         name: 1
+//     },
+//     {
+//         name: 2
+//     }
+// ];
 
-const names = arr.map(function(item){
-    return item.name
-})
+// const names = arr.map(function(item){
+//     return item.name
+// })
 
-/** 
- * 可以转化为以下方式
-*/
-function getprops(key, item) {
-    return item[key]
-}
+// /** 
+//  * 可以转化为以下方式
+// */
+// function getprops(key, item) {
+//     return item[key]
+// }
 
-const getNameProps = curry(getprops, "name")
+// const getNameProps = curry(getprops, "name")
 
-const names1 = arr.map(getNameProps)
+// const names1 = arr.map(getNameProps)
 
-console.log(names, names1)
+// console.log(names, names1)
+
+module.exports = curry;
