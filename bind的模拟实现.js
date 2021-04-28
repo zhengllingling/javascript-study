@@ -1,3 +1,8 @@
+/** 
+ * bind函数和call、apply作用相同都是改变this指向
+ * 但是不同的是bind不会立即执行，而是按事先传入的参数返回一个函数，需要时执行就行
+*/
+
 Function.prototype.bind2 = function(context) {
     const self = this;
     const args = Array.prototype.slice(arguments, 1);
