@@ -1,4 +1,14 @@
 /** 
+ * this执向最后调用它的那个对象
+ * 在全局环境下非严格模式下this指向window 严格模式下this指向undefined
+ * 箭头函数不会生成自己的this对象
+ * 箭头函数的this会捕获定义时外层执行环境的this
+ * 箭头函数不能用作构造函数
+ * 箭头函数不能使用call/apply/bind来改变this指向
+ * 箭头函数没有自己的arguments
+*/
+
+/** 
  * ECMAScript中还有一种只存在规范中的类型，用于描述底层行为逻辑
  * Reference 包括三个部分
  * 1.base value
