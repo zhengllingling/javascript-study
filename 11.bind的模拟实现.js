@@ -5,10 +5,10 @@
 
 Function.prototype.bind2 = function(context) {
     const self = this;
-    const args = Array.prototype.slice(arguments, 1);
+    const args = Array.prototype.slice.call(arguments, 1);
     const fN = function(){}
     const f = function () {
-        const bindArgs = Array.prototype.slice(arguments);
+        const bindArgs = Array.prototype.slice.call(arguments);
         return self.apply(this instanceof f ? this : context, args.concat(bindArgs))
     }
     fN.prototype = this.prototype;

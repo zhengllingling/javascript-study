@@ -54,6 +54,12 @@ proxyObj.a = 11;
  * 1.defineProperty不能监听数组变化, Proxy可以
  * 2.defineProperty不可以劫持整个对象， Proxy可以
  * 3.defineProperty操作是对源对象操作，Proxy不是，需要对Proxy实例操作
- * 4.defineProperty可劫持的操作只有get和set，而Proxy有get、set、defineProperty、has等13中方法
+ * 4.defineProperty可劫持的操作只有get和set，而Proxy有get、set、defineProperty、has、getPropertyOf等13中方法
  * 5.defineProperty支持IE8以上的主流浏览器，Proxy不支持IE
  * */
+
+
+/** 
+ * this问题
+ * 在Proxy代理的情况下，目标对象内部的this会指向Proxy代理
+*/
