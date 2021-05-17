@@ -90,3 +90,53 @@ new Promise(function(resolve){
 // Promise.any
 // Promise.resolve 转为Promise对象
 // Promise.reject
+
+// 手动实现一个Promise
+function myPromise(constructor) {
+    var self = this;
+    self.status = "pendding";
+    self.value = undefined;
+    self.reason = undefined;
+
+    function resolve(value) {
+        if(self.status === "pendding") {
+            self.value = value;
+            self.status = "resolved";
+        }
+    }
+
+    function reject(reason) {
+        if(self.status === "pendding") {
+            self.reason = reason;
+            self.status = "rejected";
+        }
+    }
+
+    try {
+        constructor(resolve, reject);
+    } catch (error) {
+        reject(error);
+    }
+}
+
+myPromise.prototype.then = function(onFullfilled, onRejected) {
+    var self = this;
+    switch(self.status) {
+        case "resolved": onFullfilled(self.value); break;
+        case "rejected": onRejected(self.reason); break;
+        default: ;
+    }
+}
+
+const testPromise = new myPromise((resolve, reject)=>{
+    setTimeout(() => {
+        console.log("test promise");
+        resolve("111");
+    }, 1000)
+})
+
+testPromise.then(res => {
+    console.log(res);
+})
+
+console.log(222)
