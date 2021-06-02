@@ -95,3 +95,9 @@ type(new Person("p1")) // Object
 // instanceof 判断具体哪一个类型 
 
 p1 instanceof Person // true
+
+/** 
+ * 注：typeof安全机制
+ * 未定义和未声明变量执行都返回undefined
+ * 未声明变量执行typeof不会报错;
+*/
